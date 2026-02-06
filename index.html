@@ -32,7 +32,7 @@
   <div class="flex items-center justify-center h-screen">
     <div class="flex flex-col items-center p-4">
       <img id="imageDisplay" src="https://raw.githubusercontent.com/CodeKageHQ/Ask-out-your-Valentine/refs/heads/main/images/image1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
-      <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Will you be my Valentine?</h2>
+      <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Rozy Will you be my Valentine?</h2>
       <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
         <button id="yesButton"
           class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
@@ -67,21 +67,35 @@
 "https://raw.githubusercontent.com/CodeKageHQ/Ask-out-your-Valentine/refs/heads/main/images/image6.gif",
 "https://raw.githubusercontent.com/CodeKageHQ/Ask-out-your-Valentine/refs/heads/main/images/image7.gif",    ];
   
-    noButton.addEventListener('click', function() {
-      if (noClickCount < 5) {
-        noClickCount++;
-        imageDisplay.src = imagePaths[noClickCount];
-        buttonHeight += 35; // Increase height by 5px on each click
-        buttonWidth += 35;
-        fontSize += 25; // Increase font size by 1px on each click
-        yesButton.style.height = `${buttonHeight}px`; // Update button height
-        yesButton.style.width = `${buttonWidth}px`;
-        yesButton.style.fontSize = `${fontSize}px`; // Update font size
-        if (noClickCount < 6) {
-          noButton.textContent = ["No", "Are you sure?", "Rose please", "Don't do this to me :(", "You're breaking my heart", "I'm gonna cry..., You want to see me crying?"][noClickCount];
-        }
-      }
-    });
+    // noButton.addEventListener('click', function() {
+    //   if (noClickCount < 5) {
+    //     noClickCount++;
+    //     imageDisplay.src = imagePaths[noClickCount];
+    //     buttonHeight += 35; // Increase height by 5px on each click
+    //     buttonWidth += 35;
+    //     fontSize += 25; // Increase font size by 1px on each click
+    //     yesButton.style.height = `${buttonHeight}px`; // Update button height
+    //     yesButton.style.width = `${buttonWidth}px`;
+    //     yesButton.style.fontSize = `${fontSize}px`; // Update font size
+    //     if (noClickCount < 6) {
+    //       noButton.textContent = ["No", "Are you sure?", "Rose please", "Don't do this to me :(", "You're breaking my heart", "I'm gonna cry..., You want to see me crying?"][noClickCount];
+    //     }
+    //   }
+    // });
+    // Source - https://stackoverflow.com/a/73995143
+// Posted by Indrakant
+// Retrieved 2026-02-06, License - CC BY-SA 4.0
+
+const button = document.getElementById('noButton');
+button.addEventListener('mouseover', function () {
+    button.style.position="absolute";
+    button.style.transition='.5s'
+    button.style.left = `${Math.ceil(Math.random() * 90)}%`;
+    button.style.top = `${Math.ceil(Math.random() * 90)}%`;
+});
+button.addEventListener('click', function () {
+    // alert('you clicked me')
+})
   
     yesButton.addEventListener('click', () => {
       imageDisplay.src = "https://raw.githubusercontent.com/CodeKageHQ/Ask-out-your-Valentine/refs/heads/main/images/image7.gif" // Change to image7.gif
@@ -91,4 +105,5 @@
     });
   </script>  
 </body>
+
 </html>
